@@ -74,6 +74,8 @@ API предоставляет следующие конечные точки:
 - `GET /service/history/{name}` - Показывает историю сервиса, указанного по имени
 
 #### Документация API находится по адресу `localhost:8000/docs`
+<img height="200" src="https://github.com/artem-sitd/ServiceStatusFastAPI/assets/22573129/4db378c0-f5f9-4d6f-8641-3e8bf0cd33ce">
+
 
 ## Структура проекта
 
