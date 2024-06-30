@@ -1,6 +1,6 @@
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Optional
 from datetime import datetime
+
+from pydantic import BaseModel, ConfigDict, field_validator
 
 
 class ServiceSchema(BaseModel):
@@ -20,3 +20,16 @@ class ServiceStatusSchema(BaseModel):
     service_id: int
     status: str
     timestamp: datetime
+
+
+class SlaInputSchema(BaseModel):
+    name: str
+    start_time: str
+    end_time: str
+
+    @field_validator("start_time", "end_time")
+    def validate_date(cls, v):
+        try:
+            return datetime.strptime(v, "%d-%m-%Y")
+        except ValueError:
+            raise ValueError("Incorrect date format, should be DD-MM-YYYY")
